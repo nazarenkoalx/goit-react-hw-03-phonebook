@@ -10,10 +10,9 @@ let ContactsSchema = object({
     .required()
     .min(3, 'must be at least 3 characters long')
     .max(20, 'must be less than 20 characters long'),
-  number: string().required(),
+  number: string().required().length(10, 'type 10 digits of phone number'),,
 });
 
-// .length(10, 'type 10 digits of phone number'),
 
 export const ContactForm = ({ onSubmit }) => (
   <Section>
