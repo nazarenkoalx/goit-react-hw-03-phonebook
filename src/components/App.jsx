@@ -5,17 +5,12 @@ import { Filter } from './Filter/Filter';
 import { Container } from './Container/Container.styled';
 import { nanoid } from 'nanoid';
 
-const INITIAL_STATE = {
-  contacts: [],
-  filter: '',
-};
-
 export class App extends Component {
-  state = { ...INITIAL_STATE };
+  state = { contacts: [], filter: '' };
 
   componentDidMount() {
     const localContacts = JSON.parse(localStorage.getItem('contacts'));
-    if (localContacts.length > 0) {
+    if (localContacts) {
       this.setState({ contacts: localContacts });
     }
   }
