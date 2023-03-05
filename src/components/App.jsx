@@ -9,6 +9,7 @@ export class App extends Component {
   state = { contacts: [], filter: '' };
 
   componentDidMount() {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     const localContacts = JSON.parse(localStorage.getItem('contacts'));
     if (localContacts) {
       this.setState({ contacts: localContacts });
